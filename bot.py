@@ -93,8 +93,8 @@ def convert_image(update,context):
                      InlineKeyboardButton("Swedish", callback_data='swe'),
                      InlineKeyboardButton("Turkish", callback_data='tur')
                      ]]
-        reply_markup = InlineKeyboardMarkup(keyboard)
-        update.message.reply_text("Select the Language Here 👇", reply_markup=reply_markup)
+        #reply_markup = InlineKeyboardMarkup(keyboard)
+        #update.message.reply_text("Select the Language Here 👇", reply_markup=reply_markup)
 
 @run_async
 def button(update,context):
@@ -103,7 +103,7 @@ def button(update,context):
     query.answer()
     query.edit_message_text("Extracting Text....")
     #data=requests.get(f"https://api.ocr.space/parse/imageurl?apikey={API_KEY}&url={filepath}&language=spa&detectOrientation=True&filetype=JPG&OCREngine=2&isTable=True&scale=True")
-    data=requests.get(f"https://api.ocr.space/parse/imageurl?apikey={API_KEY}&url={filepath}&language={query.data}&detectOrientation=True&filetype=JPG&OCREngine=2&isTable=False&scale=True&overlay=True")
+    data=requests.get(f"https://api.ocr.space/parse/imageurl?apikey={API_KEY}&url={filepath}&language=spa&detectOrientation=True&filetype=JPG&OCREngine=2&isTable=False&scale=True")
     data=data.json()
     if data['IsErroredOnProcessing']==False:
         message=data['ParsedResults'][0]['ParsedText']
