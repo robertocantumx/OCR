@@ -93,8 +93,8 @@ def convert_image(update,context):
                      InlineKeyboardButton("Swedish", callback_data='swe'),
                      InlineKeyboardButton("Turkish", callback_data='tur')
                      ]]
-        #reply_markup = InlineKeyboardMarkup(keyboard)
-        #update.message.reply_text("Select the Language Here 👇", reply_markup=reply_markup)
+        reply_markup = InlineKeyboardMarkup(keyboard)
+        update.message.reply_text("Select the Language Here 👇", reply_markup=reply_markup)
 
 @run_async
 def button(update,context):
