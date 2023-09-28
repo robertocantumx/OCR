@@ -103,7 +103,7 @@ def button(update,context):
     query.answer()
     query.edit_message_text("Extracting Text....")
     #data=requests.get(f"https://api.ocr.space/parse/imageurl?apikey={API_KEY}&url={filepath}&language=spa&detectOrientation=True&filetype=JPG&OCREngine=2&isTable=True&scale=True")
-    data=requests.get(f"https://api.ocr.space/parse/imageurl?apikey={API_KEY}&url={filepath}&language={query.data}&detectOrientation=True&filetype=JPG&OCREngine=2&isTable=True&scale=True")
+    data=requests.get(f"https://api.ocr.space/parse/imageurl?apikey={API_KEY}&url={filepath}&language={query.data}&detectOrientation=True&filetype=JPG&OCREngine=2&isTable=False&scale=True&overlay=True")
     data=data.json()
     if data['IsErroredOnProcessing']==False:
         message=data['ParsedResults'][0]['ParsedText']
